@@ -40,12 +40,17 @@ module.exports = {
       negative: 0
     };
 
-    votes.positive = 5;
-    userVotes.positive -= 5;
+    if (allIn) {
+      votes.positive = userVotes.positive;
+      userVotes.positive = 0;
+    } else {
+      votes.positive = 5;
+      userVotes.positive -= 5;
 
-    const pos = userVotes.positive;
-    for (let i = 0; i < pos; i++) {
-      votes.positive += Math.round(Math.random());
+      const pos = userVotes.positive;
+      for (let i = 0; i < pos; i++) {
+        votes.positive += Math.round(Math.random());
+      }
     }
 
     const useNegatives = Math.random() * 100 <= 30;

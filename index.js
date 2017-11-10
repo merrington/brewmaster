@@ -45,7 +45,8 @@ api
     //get the users's season info (num of votes)
     const userSeason = data.seasons.find(season => season.slug === seasonSlug);
     const shouldVote = logic.shouldVote(userSeason.votes);
-    if (shouldVote || true) {
+
+    if (shouldVote) {
       const howManyVotes = logic.howManyVotes(userSeason.votes);
 
       finalVote.votes = logic.assignVotes({
